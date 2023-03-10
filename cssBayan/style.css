@@ -36,9 +36,13 @@ body {
     padding-bottom: 15px;
 }
 
-.memes:hover .content {
+body:hover .content {
     color: #000;
 }
+
+.meme-button {
+    display: none;
+} 
 
 .memes:hover .meme-button {
     display:inline-block;
@@ -51,12 +55,8 @@ body {
     background-size: 50% 4px,4px 50%; 
     background-repeat:no-repeat;
     border: none;
-} 
+}
  
-.meme-button {
-    display: none;
-} 
-
 .meme-one,
 .meme-two,
 .meme-three,
@@ -65,16 +65,37 @@ body {
     border-bottom: 2px solid #c6c8ca;
 }
 
- /* .meme {
+.image-one,
+.image-two,
+.image-three,
+.image-four,
+.image-five {
     display: none;
-  } 
-  */
-.meme {
-    margin: 0 auto;
 }
 
-.image {
-    width: 300px;
+.meme-one:hover .image-one,
+.meme-two:hover .image-two,
+.meme-three:hover .image-three,
+.meme-four:hover .image-four,
+.meme-five:hover .image-five {
+display: block;
+}
+
+.meme-one:hover .meme-button,
+.meme-two:hover .meme-button,
+.meme-three:hover .meme-button,
+.meme-four:hover .meme-button,
+.meme-five:hover .meme-button {
+    transform: rotate(45deg);
+}
+
+.memes:hover .image {
+width: 300px;
+margin: 0 auto;
+}
+
+.meme {
+    margin: 0 auto;
 }
 
 .memes:hover .meme {
@@ -84,7 +105,6 @@ body {
 .meme-dot {
     width: 0;
     height: 0;
-    -webkit-appearance: none;
 }
   
 
