@@ -17,18 +17,41 @@ body {
      margin: 0 auto;
 }
 
+.main-container:hover .meme-title {
+    color: #000;
+}
+
+.memes:hover {
+    cursor: pointer;
+}
+
 .title {
     padding-top: 15px;
     padding-bottom: 15px;
     border-bottom: 2px solid #c6c8ca;
 }
 
-.content {
-    display: flex;
-    justify-content: space-between;
+.meme-title {
+    position: relative;
     font-size: 20px;
     font-weight: bold;
     color: blue;
+}
+
+.memes:hover .meme-title:after {
+    content: "";
+    position: absolute;
+    display:inline-block;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    background:
+      linear-gradient(#000, #000),
+      linear-gradient(#000, #000);
+    background-position:center;
+    background-size: 50% 3px,3px 50%; 
+    background-repeat:no-repeat;
+    border: none;
 }
 
 .memes {
@@ -36,27 +59,6 @@ body {
     padding-bottom: 15px;
 }
 
-body:hover .content {
-    color: #000;
-}
-
-.meme-button {
-    display: none;
-} 
-
-.memes:hover .meme-button {
-    display:inline-block;
-    width: 40px;
-    height: 40px;
-    background:
-      linear-gradient(#000, #000),
-      linear-gradient(#000, #000);
-    background-position:center;
-    background-size: 50% 4px,4px 50%; 
-    background-repeat:no-repeat;
-    border: none;
-}
- 
 .meme-one,
 .meme-two,
 .meme-three,
@@ -65,50 +67,53 @@ body:hover .content {
     border-bottom: 2px solid #c6c8ca;
 }
 
-.image-one,
-.image-two,
-.image-three,
-.image-four,
-.image-five {
-    display: none;
-}
-
-.meme-one:hover .image-one,
-.meme-two:hover .image-two,
-.meme-three:hover .image-three,
-.meme-four:hover .image-four,
-.meme-five:hover .image-five {
-display: block;
-}
-
-.meme-one:hover .meme-button,
-.meme-two:hover .meme-button,
-.meme-three:hover .meme-button,
-.meme-four:hover .meme-button,
-.meme-five:hover .meme-button {
-    transform: rotate(45deg);
-}
-
-.memes:hover .image {
-width: 300px;
-margin: 0 auto;
-}
-
-.meme {
-    margin: 0 auto;
-}
-
-.memes:hover .meme {
+.meme-one:hover .meme-image1,
+.meme-two:hover .meme-image2,
+.meme-three:hover .meme-image3,
+.meme-four:hover .meme-image4,
+.meme-five:hover .meme-image5 {
     display: block;
+    cursor: pointer;
 }
+
+.meme-one:hover .meme-title:after,
+.meme-two:hover .meme-title:after,
+.meme-three:hover .meme-title:after,
+.meme-four:hover .meme-title:after,
+.meme-five:hover .meme-title:after {
+     transform: rotate(45deg);
+} 
 
 .meme-dot {
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
     width: 0;
     height: 0;
 }
-  
 
+.meme-image1,
+.meme-image2,
+.meme-image3,
+.meme-image4,
+.meme-image5 {
+    display: none;
+}
 
+.image {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+}
 
+#meme1:checked ~ .meme-button > .meme-image1,
+#meme2:checked ~ .meme-button > .meme-image2,
+#meme3:checked ~ .meme-button > .meme-image3,
+#meme4:checked ~ .meme-button > .meme-image4,
+#meme5:checked ~ .meme-button > .meme-image5 {
+    display: block;
+}
 
-
+#meme1:checked ~ .meme-title {
+    color: #000;
+}
