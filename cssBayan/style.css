@@ -22,14 +22,6 @@ body {
      margin: 0 auto;
 }
 
-.main-container:hover .meme-title {
-    color: #000;
-}
-
-.memes:hover {
-    cursor: pointer;
-}
-
 .title {
     padding-top: 0.3125rem;
     padding-bottom: 0.625rem;
@@ -38,7 +30,6 @@ body {
 }
 
 .meme-title {
-    position: relative;
     padding-top: 0.625rem;
     padding-bottom: 0.3125rem;
     font-size: 0.9rem;
@@ -46,21 +37,10 @@ body {
     color: blue;
 }
 
-.memes:hover .meme-title:after {
-    content: "";
-    position: absolute;
-    display:inline-block;
-    right: 0.0625rem;
-    width: 1.25rem;
-    height: 1.25rem;
-    background:
-      linear-gradient(#000, #000),
-      linear-gradient(#000, #000);
-    background-position:center;
-    background-size: 50% 0.1875rem, 0.1875rem 50%; 
-    background-repeat:no-repeat;
-    border: none;
-    transition: 0.01s;
+.meme-plus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .memes {
@@ -75,36 +55,10 @@ body {
     border-bottom: 0.125rem solid #c6c8ca;
 }
 
-.meme-one:hover .meme-image1,
-.meme-two:hover .meme-image2,
-.meme-three:hover .meme-image3,
-.meme-four:hover .meme-image4,
-.meme-five:hover .meme-image5 {
-    display: block;
-    cursor: pointer;
-    animation-name: meme;
-    animation-duration: 1s;  
-}
-
-.meme-one:hover .meme-title:after,
-.meme-two:hover .meme-title:after,
-.meme-three:hover .meme-title:after,
-.meme-four:hover .meme-title:after,
-.meme-five:hover .meme-title:after {
-     transform: rotate(45deg);
-     transition: 0.01s;
-} 
-
 .meme-dot {
-    appearance: none;
-    -webkit-appearance: none;
-    position: absolute;
+    display: none;
     width: 0;
     height: 0;
-}
-
-.meme-button:hover {
-    cursor: pointer;
 }
 
 .meme-image1,
@@ -129,11 +83,11 @@ body {
     display: block;
 }
 
-#meme1:active ~ .meme-button > .meme-title,
-#meme2:active ~ .meme-button > .meme-title,
-#meme3:active ~ .meme-button > .meme-title,
-#meme4:active ~ .meme-button > .meme-title,
-#meme5:active ~ .meme-button > .meme-title {
+#meme1:active ~ .meme-button > .meme-plus > .meme-title,
+#meme2:active ~ .meme-button > .meme-plus > .meme-title,
+#meme3:active ~ .meme-button > .meme-plus > .meme-title,
+#meme4:active ~ .meme-button > .meme-plus > .meme-title,
+#meme5:active ~ .meme-button > .meme-plus > .meme-title {
     color: blue;
 }
 
@@ -145,11 +99,11 @@ body {
     opacity: 0.5;
 }
 
-#meme1:checked ~ .meme-button > .meme-title,
-#meme2:checked ~ .meme-button > .meme-title,
-#meme3:checked ~ .meme-button > .meme-title,
-#meme4:checked ~ .meme-button > .meme-title,
-#meme5:checked ~ .meme-button > .meme-title {
+#meme1:checked ~ .meme-button > .meme-plus > .meme-title,
+#meme2:checked ~ .meme-button > .meme-plus > .meme-title,
+#meme3:checked ~ .meme-button > .meme-plus > .meme-title,
+#meme4:checked ~ .meme-button > .meme-plus > .meme-title,
+#meme5:checked ~ .meme-button > .meme-plus > .meme-title {
     color: #000;
 }
 
@@ -162,7 +116,78 @@ body {
     }  
 }
 
+@media (min-width: 1024px)  {
+    .main-container:hover .meme-title {
+        color: #000;
+    }
+    .memes:hover {
+        cursor: pointer;
+    }
+    .meme-one:hover .meme-image1,
+    .meme-two:hover .meme-image2,
+    .meme-three:hover .meme-image3,
+    .meme-four:hover .meme-image4,
+    .meme-five:hover .meme-image5 {
+        display: block;
+        cursor: pointer;
+        animation-name: meme;
+        animation-duration: 1s;  
+    }
+    .memes:hover .plus {
+        content: "";
+        display:inline-block;
+        padding-left: 0.0625rem;
+        width: 1.25rem;
+        height: 1.25rem;
+        background:
+          linear-gradient(#000, #000),
+          linear-gradient(#000, #000);
+        background-position:center;
+        background-size: 50% 0.1875rem, 0.1875rem 50%; 
+        background-repeat:no-repeat;
+        border: none;
+        transition: 0.1s;
+    }
+    .meme-one:hover .plus,
+    .meme-two:hover .plus,
+    .meme-three:hover .plus,
+    .meme-four:hover .plus,
+    .meme-five:hover .plus {
+         transform: rotate(45deg);
+         transition: 0.01s;
+    } 
+    .meme-button:hover {
+        cursor: pointer;
+    }
+}
+
 /*tablet версия Bayan*/
+@media (max-width: 1023px) {
+    .plus {
+        content: "";
+        display:inline-block;
+        padding-left: 0.0625rem;
+        width: 1.25rem;
+        height: 1.25rem;
+        background:
+          linear-gradient(#000, #000),
+          linear-gradient(#000, #000);
+        background-position:center;
+        background-size: 50% 0.1875rem, 0.1875rem 50%; 
+        background-repeat:no-repeat;
+        border: none;
+        transition: 0.1s;
+    }
+    #meme1:checked ~ .meme-button > .meme-plus > .plus,
+    #meme2:checked ~ .meme-button > .meme-plus > .plus,
+    #meme3:checked ~ .meme-button > .meme-plus > .plus,
+    #meme4:checked ~ .meme-button > .meme-plus > .plus,
+    #meme5:checked ~ .meme-button > .meme-plus > .plus {
+        transform: rotate(45deg);
+        transition: 0.01s;
+    }
+}
+
 @media (max-width: 820px)  {
     .title {
         font-size: 1.15rem;
@@ -170,11 +195,10 @@ body {
     .meme-title {
         font-size: 0.7rem;
     }
-    .memes:hover .meme-title:after {
-        width: 1.15rem;
-        height: 1.15rem;
-        background-size: 40% 0.1675rem, 0.1675rem 40%;
-        bottom: 0.2rem; 
+    .plus {
+        width: 1rem;
+        height: 1rem;
+        background-size: 40% 0.12rem, 0.12rem 40%;
     }
 }
 
@@ -186,10 +210,9 @@ body {
     .meme-title {
         font-size: 0.5rem;
     }
-    .memes:hover .meme-title:after {
+    .plus {
         width: 0.8rem;
         height: 0.8rem;
-        background-size: 30% 0.05rem, 0.05rem 30%;
-        right: 0.01rem;
+        background-size: 40% 0.09rem, 0.09rem 40%;
     }
 }
